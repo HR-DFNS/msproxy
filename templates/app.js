@@ -1,0 +1,1 @@
+module.exports = (gallery) => `<div id="App">${gallery}</div>`;
