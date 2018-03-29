@@ -1,3 +1,3 @@
 { 
-  "App": "http://localhost:3001/restaurants/id/bundle"
+  "App": "http://g-1938099559.us-west-1.elb.amazonaws.com/restaurants/id/bundle"
 }

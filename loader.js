@@ -1,5 +1,6 @@
 const fs = require('fs');
 const fetch = require('node-fetch');
+const axios = require('axios');
 const Promise = require('bluebird');
 const exists = Promise.promisify(fs.stat);
 
@@ -8,7 +9,7 @@ const loadBundle = function(cache, item, filename) {
   setTimeout(() => {
     console.log('loading:', filename);
     cache[item] = require(filename).default;    
-  }, 0);
+  }, 300);
 };
 
 const fetchBundles = (path, services, suffix = '', require = false) => {
@@ -23,13 +24,13 @@ const fetchBundles = (path, services, suffix = '', require = false) => {
           const url = `${services[item]}${suffix}.js`;
           console.log(`Fetching: ${url}`);
           // see: https://www.npmjs.com/package/node-fetch
-          fetch(url)
-            .then(res => {
+          axios(url)
+            .then((res) => {
               const dest = fs.createWriteStream(filename);
-              res.body.pipe(dest);
-              res.body.on('end', () => {
+              dest.write(res.data, (werr) => {
+                if (werr) throw werr
                 require ? loadBundle(services, item, filename) : null;
-              });
+              })
             });
         } else {
           console.log('WARNING: Unknown fs error');
