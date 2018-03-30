@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express')
 const morgan = require('morgan');
 const path = require('path');
@@ -47,15 +48,12 @@ app.get('/api/restaurants/:id/gallery', (req, res) => {
   switch(service) {
 		case 1:
 		  res.redirect(`http://54.153.68.14:3001/api/restaurants/${req.params.id}/gallery/`);
-		  console.log(1);
       break;
 		case 2:
 		  res.redirect(`http://54.153.113.21:3001/api/restaurants/${req.params.id}/gallery/`);
-		  console.log(2);
       break;
 		case 3:
 		  res.redirect(`http://54.153.16.167:3001/api/restaurants/${req.params.id}/gallery/`);
-		  console.log(3);
       break;
 	}
   service = service === 3 ? 1 : service+1;
