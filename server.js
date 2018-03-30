@@ -63,6 +63,15 @@ app.get('/api/restaurants/:id/gallery', (req, res) => {
 	res.redirect(`http://g-1938099559.us-west-1.elb.amazonaws.com/api/restaurants/${req.params.id}/gallery`); // */
 });
 
+
+app.get('/api/restaurants/:id/sidebar', (req, res) => {
+	res.redirect(`http://18.144.71.60:3003/api/restaurants/${req.params.id}/sidebar`);
+});
+
+app.get('/api/restaurants/:id/recommendations', (req, res) => {
+	res.redirect(`http://54.193.96.60:3004/api/restaurants/${req.params.id}/recommendations`);
+});
+
 app.listen(port, () => {
 	console.log(`server running at: http://localhost:${port}`)
 });
