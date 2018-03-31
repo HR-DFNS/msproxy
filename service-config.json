@@ -1,4 +1,5 @@
 { 
   "App": "http://172.31.10.182:3001/restaurants/id/bundle",
-  "Sidebar": "http://18.144.71.60:3003/bundle"
+  "Sidebar": "http://18.144.71.60:3003/bundle",
+	"Overview": "http://54.67.19.29:3002/restaurants/id/bundle"
 }

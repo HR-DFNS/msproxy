@@ -1,4 +1,3 @@
-require('newrelic');
 const express = require('express')
 const morgan = require('morgan');
 const path = require('path');
@@ -70,6 +69,15 @@ app.get('/api/restaurants/:id/recommendations', (req, res) => {
 	res.redirect(`http://54.193.96.60:3004/api/restaurants/${req.params.id}/recommendations`);
 });
 
+app.get('/api/restaurants/:id/overview', (req, res) => {
+	res.redirect(`http://54.67.19.29:3002/api/restaurants/${req.params.id}/overview`);
+});
+
+
 app.listen(port, () => {
 	console.log(`server running at: http://localhost:${port}`)
 });
+app.get('/api/restaurants/:id/recommendations', (req, res) => {
+	res.redirect(`http://54.193.96.60:3004/api/restaurants/${req.params.id}/recommendations`);
+});
+
